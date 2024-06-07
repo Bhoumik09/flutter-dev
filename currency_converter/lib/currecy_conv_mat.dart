@@ -83,7 +83,7 @@ class _CurrencyConverterMaterialPageState extends State {
                 onPressed: () {
                   setState(() {
                     
-                    result = double.parse(text.text)*81;
+                    result = double.parse(text.text);
                   });
                 },
                 style: ElevatedButton.styleFrom(
