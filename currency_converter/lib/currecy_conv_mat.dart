@@ -7,7 +7,6 @@ class CurrencyConverterMaterialPage extends StatefulWidget {
 
   @override
   State createState() {
-    debugPrint("create state");
     return _CurrencyConverterMaterialPageState();
   }
 }
@@ -25,7 +24,7 @@ class _CurrencyConverterMaterialPageState extends State {
   @override
   Widget build(BuildContext context) {
     debugPrint("built");
-    
+
     const border = OutlineInputBorder(
       borderSide: BorderSide(
         color: Color.fromARGB(255, 27, 14, 13),
@@ -53,7 +52,7 @@ class _CurrencyConverterMaterialPageState extends State {
           children: [
             // int->int.parsse(string)
             Text(
-              result.toString(),
+              "INR ${result != 0 ? result.toStringAsFixed(2) : 0}",
               style: const TextStyle(
                 fontSize: 45,
                 fontWeight: FontWeight.w900,
@@ -82,8 +81,7 @@ class _CurrencyConverterMaterialPageState extends State {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    
-                    result = double.parse(text.text);
+                    result = double.parse(text.text) * 81;
                   });
                 },
                 style: ElevatedButton.styleFrom(
