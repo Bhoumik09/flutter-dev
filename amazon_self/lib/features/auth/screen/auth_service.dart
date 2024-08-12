@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:amazon_self/constants/error_handling.dart';
 import 'package:amazon_self/constants/global_variables.dart';
 import 'package:amazon_self/constants/utils.dart';
-import 'package:amazon_self/features/home_screens/screen/home_screen.dart';
+import 'package:amazon_self/features/home_screens/screen/screens/home_screen.dart';
 import 'package:amazon_self/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 

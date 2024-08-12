@@ -1,7 +1,9 @@
+import 'package:amazon_self/common/botton_navigation_bar.dart';
 import 'package:amazon_self/constants/global_variables.dart';
+import 'package:amazon_self/features/admin/screens/admin_screen.dart';
 import 'package:amazon_self/features/auth/screen/auth_screen.dart';
 import 'package:amazon_self/features/auth/screen/auth_service.dart';
-import 'package:amazon_self/features/home_screens/screen/home_screen.dart';
+import 'package:amazon_self/features/home_screens/screen/screens/home_screen.dart';
 import 'package:amazon_self/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,16 +23,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
-  final AuthService authService=AuthService();
+  final AuthService authService = AuthService();
   @override
-  void initState(){
+  void initState() {
     super.initState();
     authService.getUserData(context: context);
   }
+
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          
             colorScheme: const ColorScheme.light(
                 primary: GlobalVariables.secondaryColor),
             scaffoldBackgroundColor: GlobalVariables.greyBackgroundCOlor,
@@ -43,6 +48,8 @@ class _MyAppState extends State<MyApp> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: GlobalVariables.secondaryColor,
                     foregroundColor: GlobalVariables.backgroundColor))),
-        home:Provider.of<UserProvider>(context).user.token.isNotEmpty? const HomeScreen():const AuthScreen());
+        home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+            ? Provider.of<UserProvider>(context).user.type=='user'? const BottonNavigationBar()
+            :const AdminScreen(): const AuthScreen());
   }
 }
